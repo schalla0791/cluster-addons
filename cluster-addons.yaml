@@ -6,17 +6,17 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/argoproj/argo-cd.git
+      repoURL: https://github.com/schalla0791/cluster-addons
       revision: HEAD
       directories:
-      - path: applicationset/examples/git-generator-directory/cluster-addons/*
+      - path: /*
   template:
     metadata:
       name: '{{path[0]}}'
     spec:
-      project: "my-project"
+      project: "default"
       source:
-        repoURL: https://github.com/argoproj/argo-cd.git
+        repoURL: https://github.com/schalla0791/cluster-addons.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
