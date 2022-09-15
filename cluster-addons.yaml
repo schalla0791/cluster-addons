@@ -9,12 +9,14 @@ spec:
       repoURL: https://github.com/schalla0791/cluster-addons
       revision: HEAD
       directories:
-      - path: /*
+      - path: '*'
   template:
     metadata:
-      name: '{{path[0]}}'
+      name: '{{path}}'
     spec:
       project: "default"
+#      syncPolicy:
+#        automated: {}
       source:
         repoURL: https://github.com/schalla0791/cluster-addons.git
         targetRevision: HEAD
