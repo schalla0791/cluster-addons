@@ -15,8 +15,13 @@ spec:
       name: '{{path}}'
     spec:
       project: "default"
-#      syncPolicy:
-#        automated: {}
+      syncPolicy:
+        automated: 
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - PruneLast=true
       source:
         repoURL: https://github.com/schalla0791/cluster-addons.git
         targetRevision: HEAD
