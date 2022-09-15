@@ -1,0 +1,14 @@
+apiVersion: v2
+name: goldilocks
+description: A Helm chart for VPA and resource recommendation
+type: application
+version: 0.1.1
+
+# Version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application.
+appVersion: "v4.4.0"
+
+dependencies:
+  - name: goldilocks
+    version: 6.2.0
+    repository: https://charts.fairwinds.com/stable
