@@ -3,9 +3,7 @@ ingress-nginx:
     config:
       allow-snippet-annotations: "true"
       use-proxy-protocol: "true"
-      whitelist-source-range: "66.182.195.139/32"
     service:
       externalTrafficPolicy: "Local"
-#      loadBalancerSourceRanges: ["66.182.195.139/32"]
       annotations:
         kubernetes.civo.com/loadbalancer-enable-proxy-protocol: send-proxy-v2
