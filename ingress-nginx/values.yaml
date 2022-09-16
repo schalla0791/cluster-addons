@@ -6,6 +6,6 @@ ingress-nginx:
 #      whitelist-source-range: "66.182.195.139/32"
     service:
       externalTrafficPolicy: "Local"
-      loadBalancerSourceRanges: []
+      loadBalancerSourceRanges: ["66.182.195.139/32"]
       annotations:
         kubernetes.civo.com/loadbalancer-enable-proxy-protocol: send-proxy-v2
