@@ -15,9 +15,9 @@ global:
   #  runAsGroup: 999
   #  fsGroup: 999
 apiVersionOverrides:
-  certmanager: "" # cert-manager.io/v1
+  certmanager: "cert-manager.io/v1" 
   ingress: "networking.k8s.io/v1" # networking.k8s.io/v1beta1
-  autoscaling: "" # autoscaling/v2
+  autoscaling: "autoscaling/v1"
 
 controller:
   name: application-controller
@@ -280,7 +280,6 @@ server:
     enabled: true
     hosts:
       - playground.intelops.app
-      - argo.intelops.app
 
     paths:
       - /
@@ -305,7 +304,6 @@ server:
       - secretName: argocd-tls-certificate
         hosts:
           - playground.intelops.app
-          - argo.intelops.app
 
     https: false
   ingressGrpc:
