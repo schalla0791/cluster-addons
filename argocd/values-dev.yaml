@@ -17,7 +17,7 @@ global:
 apiVersionOverrides:
   certmanager: "cert-manager.io/v1" 
   ingress: "networking.k8s.io/v1" # networking.k8s.io/v1beta1
-  autoscaling: "autoscaling/v1"
+  autoscaling: "autoscaling/v2beta1"
 
 controller:
   name: application-controller
@@ -540,7 +540,7 @@ notifications:
     create: true
     name: argocd-notifications-controller
   cm:
-    create: true
+    create: false
   subscriptions: []
     # # subscription for on-sync-status-unknown trigger notifications
     # - recipients:
