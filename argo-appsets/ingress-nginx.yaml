@@ -1,36 +1,3 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: cert-manager
-  namespace: argocd
-spec:
-  generators:
-  - list:
-      elements:
-      - cluster: dev
-        url: https://kubernetes.default.svc
-  template:
-    metadata:
-      name: cert-manager
-    spec:
-      project: "default"
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-        syncOptions:
-        - CreateNamespace=true
-        - PruneLast=true
-      source:
-        repoURL: https://github.com/schalla0791/cluster-addons.git
-        targetRevision: HEAD
-        path: cert-manager
-        helm:
-          valueFiles:
-          - values.yaml
-      destination:
-        server: '{{url}}'
-        namespace: cert-manager
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -65,4 +32,3 @@ spec:
       destination:
         server: '{{url}}'
         namespace: ingress-nginx
----

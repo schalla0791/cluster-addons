@@ -250,8 +250,6 @@ server:
       group: "cert-manager.io"
       kind: "ClusterIssuer"
       name: "letsencrypt"
-    additionalHosts:
-    - argo.intelops.app
     secretName: argocd-server-tls
   service:
     type: ClusterIP
@@ -303,7 +301,6 @@ server:
       - secretName: argocd-tls-certificate
         hosts:
           - playground.intelops.app
-
     https: false
   ingressGrpc:
     enabled: false
