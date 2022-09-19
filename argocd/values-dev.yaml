@@ -238,14 +238,14 @@ server:
     readOnlyRootFilesystem: true
   resources:
     limits:
-      cpu: 100m
-      memory: 128Mi
+      cpu: 200m
+      memory: 256Mi
     requests:
       cpu: 50m
       memory: 64Mi
   certificate:
     enabled: true
-    domain: playground.intelops.app
+    domain: example.com
     issuer:
       group: "cert-manager.io"
       kind: "ClusterIssuer"
@@ -277,7 +277,7 @@ server:
   ingress:
     enabled: true
     hosts:
-      - playground.intelops.app
+      - example.com
     paths:
       - /
     pathType: Prefix
@@ -300,7 +300,7 @@ server:
     tls:
       - secretName: argocd-tls-certificate
         hosts:
-          - playground.intelops.app
+          - example.com
     https: false
   ingressGrpc:
     enabled: false
@@ -319,7 +319,7 @@ server:
 
   configEnabled: true
   config:
-    url: "playground.intelops.app"
+    url: "example.com"
     application.instanceLabelKey: argocd.argoproj.io/instance
     server.rbac.log.enforce.enable: "true"
     exec.enabled: "false"
@@ -384,11 +384,11 @@ repoServer:
 
   resources:
     limits:
-      cpu: 50m
-      memory: 128Mi
+      cpu: 200m
+      memory: 256Mi
     requests:
-      cpu: 10m
-      memory: 64Mi
+      cpu: 100m
+      memory: 128Mi
 
   service:
     port: 8081
@@ -485,7 +485,7 @@ applicationSet:
 notifications:
   enabled: true
   name: notifications-controller
-  argocdUrl: playground.intelops.app
+  argocdUrl: example.com
 
   image:
     repository: ""
