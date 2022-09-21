@@ -15,9 +15,9 @@ spec:
     spec:
       project: "default"
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+#        automated:
+#          prune: true
+#          selfHeal: true
         syncOptions:
         - Replace=true
         - CreateNamespace=true
@@ -48,9 +48,9 @@ spec:
     spec:
       project: "default"
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+#        automated:
+#          prune: true
+#          selfHeal: true
         syncOptions:
         - PruneLast=true
         - CreateNamespace=true
