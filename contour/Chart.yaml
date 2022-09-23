@@ -1,0 +1,15 @@
+apiVersion: v2
+name: controur
+description: A Helm chart for contour Ingress Controller
+type: application
+
+version: 9.1.3
+
+# Version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application.
+appVersion: "1.22.1"
+
+dependencies:
+- name: contour
+  version: 9.1.3
+  repository: https://charts.bitnami.com/bitnami

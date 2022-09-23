@@ -1,0 +1,67 @@
+contour:
+  enabled: true
+  replicaCount: 2
+  resources:
+    limits:
+       cpu: 200m
+       memory: 128Mi
+    requests: 
+       cpu: 200m
+       memory: 128Mi
+  certgen:
+    certificateLifetime: 365
+  service:
+    type: ClusterIP
+    loadBalancerIP: ""
+    loadBalancerSourceRanges: []
+    externalTrafficPolicy: Cluster
+  ingressClass:
+    name: "contour"
+    create: true
+    default: false
+envoy:
+  enabled: true
+  command: []
+  resources:
+    limits:
+       cpu: 200m
+       memory: 128Mi
+    requests: 
+       cpu: 200m
+       memory: 128Mi
+  shutdownManager:
+    enabled: true
+    resources:
+      limits:
+        cpu: 50m
+        memory: 32Mi
+      requests:
+        cpu: 50m
+        memory: 32Mi
+  kind: daemonset
+  dnsPolicy: ClusterFirst
+  logLevel: info
+  service:
+    targetPorts:
+      http: http
+      https: https
+    type: LoadBalancer
+    externalTrafficPolicy: Local
+    loadBalancerSourceRanges: []
+defaultBackend:
+  enabled: true
+  resources:
+    limits:
+      cpu: 50m
+      memory: 32Mi
+    requests:
+      cpu: 50m
+      memory: 32Mi
+ingress:
+  enabled: false
+metrics:
+  serviceMonitor:
+    namespace: "contour"
+    enabled: true
+    jobLabel: "app.kubernetes.io/name"
+    interval: "30"
